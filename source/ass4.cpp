@@ -14,7 +14,7 @@ int comparePoints_x(point const& a, point const& b){
 int comparePoints_y(point const& a, point const& b){
     return a.y < b.y;
 }
-/* point divide_conquer(std::set<point> const& s){
+point divide_conquer(std::set<point> const& s){
     std::set<int> x_set;
     std::set<int> y_set;
     //create two seperate containers 
@@ -29,7 +29,7 @@ int comparePoints_y(point const& a, point const& b){
 //method to find distance of points
 int distance(point const& a, point const& b){
     return sqrt((pow(a.x - b.x))+pow(a.y - b.y));
-} */
+}
 //method to merge left and right
 void merge(std::vector<int> vec, int left, int mid, int right){
     int n1 = mid - left + 1;
