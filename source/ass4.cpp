@@ -5,31 +5,57 @@
 #include <cmath>
 #include <iterator>
 
-std::set<point> point_set;
-//method to compare points of x coordinate
+std::vector<point> point_vec;
+/* //method to compare points of x coordinate
 int comparePoints_x(point const& a, point const& b){
-    return a.x < b.x;
+    return a.x - b.x;
 }
 //method to compare points of y coordinate
 int comparePoints_y(point const& a, point const& b){
-    return a.y < b.y;
+    return a.y - b.y;
 }
-point divide_conquer(std::set<point> const& s){
-    std::set<int> x_set;
-    std::set<int> y_set;
-    //create two seperate containers 
-    //sorting x and y coordinates each
-    for(auto& x : s){
-        x_set.insert(x.x);
-        y_set.insert(x.y);
+float distance(point const& a, point const& b){
+    return sqrt(pow(comparePoints_x(a,b))+ pow(comparePoints_y(a,b)));
+}
+float min(float x, float y){
+    return (x<y)? x : y;
+}
+float bruteForce(std::vector<point> point_vev, int n){
+    float min;
+    for(int i = 0; i < n; ++i){
+        for(int j = i+1; j<n;++j){
+            if(distance(point_vec[i],point_vec[j])<min){
+                min = distance(point_vec[i],point_vec[j]);
+            }
+        }
     }
-    std::set<int>x_r;
-    std::set<int>x_r;
+    return min;
 }
-//method to find distance of points
-int distance(point const& a, point const& b){
-    return sqrt((pow(a.x - b.x))+pow(a.y - b.y));
+float closest_y(std::vector<point> vec_y, int size, float dist){
+    float min = dist;
+    qsort(vec_y,size,sizeof(point),comparePoints_y());
+    for(int i = 0;i<size;++i){
+        for(distance(vec_y[i],vec_y[j])<min){
+            min = distance(vec_y[i], vec_y[j]);
+        }
+    }
+    return min;
 }
+float closest_x(std::vector<point> vec_x, int size){
+    if(size <=3){
+        return bruteForce(vec_x,size);
+    }
+    int mid = size/2;
+    point mid_p = vec_x[mid];
+    float
+} */
+    point find_closest_pair(std::vector<point> x_vec, std::vector<point> y_vec){
+    int m = floor(x_vec.size()/2);
+    int l_x=(x_vec[m].x+ x_vec[m+1].x)/2;
+    std::vector<point> x_lvec = x_vec[m];
+    std::vector<point> x_rvec;
+    x_lvec = x_vec.
+} 
 //method to merge left and right
 void merge(std::vector<int> vec, int left, int mid, int right){
     int n1 = mid - left + 1;
